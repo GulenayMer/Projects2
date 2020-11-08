@@ -1,0 +1,134 @@
+
+/*
+    box-sizing: allows us to include the padding and border in an element's total 
+    width and height 
+    (as a default-- When you set the width/height of an element, the element
+     often appears bigger than you have set (because the element's 
+    border and padding are added to the element's specified width/height :
+    width + padding + border = actual width of an element
+    height + padding + border = actual height of an element)
+       
+ */
+
+/* * {
+    box-sizing: border-box; 
+     If you set box-sizing: border-box; on an element,
+     padding and border are included in the width and height 
+} */
+
+/*
+:root {
+    --success-color:#2ecc71;
+    --error-color: #e74c3c;
+}
+*/
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:#ececec;
+    text-align: center;
+    /*  margin: 200px auto;  /* auto left and right to center whole body*/
+
+    /* Align the flex items at the center of the container: */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     min-height: 100vh;
+     margin: 0;
+}
+
+
+.container {
+   background-color:#fcfcfc;
+   border: 1px solid #8a8a8a;
+   border-radius: 5px;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+   padding: 20px; /* need padding btw border and the content inside of it */
+
+ /* Setting the width of a block-level element will prevent it from stretching out to
+   the edges of its container.
+   Then, you can set the margins to auto, to horizontally center the element within
+    its container:  */
+    width: 80%;
+    margin: auto;
+    max-width: 400px; 
+}
+
+
+button {
+    background-color: #6d6fce;
+    color: #fcfcfc;
+    padding: 10px 80px;  /* top-bottom and left-right */
+    border-radius: 6px;
+    border: none; /* no additional borders */
+    /* margin-top: 10px; */
+   
+}
+
+/* with margin trying to put space btw inputs */
+.form-item {
+    margin: 20px 0;
+    /* position: relative; */
+ 
+ }
+
+ 
+
+/* Here with display block trying to center the labels */
+label {
+    display: block;
+    margin: 5px;
+}
+
+input {
+    padding: 5px 50px;
+    border-radius: 3px;
+    border: 0.5px solid #6d6fce;
+    width: 50%;
+
+}
+
+/* when we click on the border color changes and outline is 0, no extra dynamic 
+border when we click on */
+.form-item input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+/* I did it:)  */
+::placeholder {
+    text-align: center;
+}
+
+.form-item small {
+   color: #e74c3c;
+   /* border-color: var(--error-color); */
+   /* position: absolute; */
+   /* bottom: 0;
+   left: 0; */
+   display: block;
+   visibility: hidden;
+  
+}
+
+/* ------- ---------------   */
+/* -------------------   Our dynamic classes------- */
+
+/*-- in the case that the given input is successful */
+.form-item.success input {
+    border-color: #2ecc71;
+    /* border-color: var(--success-color); */
+}
+
+/*-- in the case that the given input is NOT successful */
+.form-item.error input {
+    
+    border-color: #e74c3c;
+    /* border-color: var(--error-color); */
+}
+
+/*-- in the case that the error message needs to be visible */
+.form-item.error small {
+    visibility: visible;
+}
